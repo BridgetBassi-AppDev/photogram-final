@@ -1,0 +1,87 @@
+<div>
+  <div>
+    <h1>
+      List of all users
+    </h1>
+  </div>
+</div>
+
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Dob
+        </th>
+
+        <th>
+          Bio
+        </th>
+
+        <th>
+          Image
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_actors.each do |an_actor| %>
+      <tr>
+        <td>
+          <%= an_actor.id %>
+        </td>
+
+        <td>
+          <%= an_actor.name %>
+        </td>
+
+        <td>
+          <%= an_actor.dob %>
+        </td>
+
+        <td>
+          <%= an_actor.bio %>
+        </td>
+
+        <td>
+          <%= an_actor.image %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(an_actor.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(an_actor.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/actors/<%= an_actor.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
