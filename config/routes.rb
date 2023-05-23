@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
   # homepage        
-  get("/users", { :controller => "user", :action => "index" })
+  get("/users", { :controller => "users", :action => "index" })
 
-  
+  get("/", { :controller => "users", :action => "index" })
+
+  #user 
+  get("/users/:path_id", { :controller => "users", :action => "show" })
+
   
   # Routes for the Comment resource:
 

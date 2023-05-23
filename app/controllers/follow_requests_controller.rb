@@ -1,6 +1,7 @@
 class FollowRequestsController < ApplicationController
   def index
-    matching_follow_requests = FollowRequest.all
+    the_id = params.fetch("path_id")
+    matching_follow_requests = FollowRequest.where({ :recipient_id => the_id })
 
     @list_of_follow_requests = matching_follow_requests.order({ :created_at => :desc })
 
