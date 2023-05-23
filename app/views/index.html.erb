@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      List of all users
+      List of users
     </h1>
   </div>
 </div>
@@ -13,68 +13,36 @@
     <table border="1">
       <tr>
         <th>
-          ID
+          Username
         </th>
 
         <th>
-          Name
+          Private?
         </th>
 
         <th>
-          Dob
+          
         </th>
 
         <th>
-          Bio
+          
         </th>
 
-        <th>
-          Image
-        </th>
-
-        <th>
-          Created at
-        </th>
-
-        <th>
-          Updated at
-        </th>
-
-        <th>
-        </th>
       </tr>
 
-      <% @list_of_actors.each do |an_actor| %>
+      <% @list_of_users.each do |an_actor| %>
       <tr>
         <td>
-          <%= an_actor.id %>
+          <%= an_actor.username %>
         </td>
 
         <td>
-          <%= an_actor.name %>
+          <%= an_actor.private %>
         </td>
 
+       
         <td>
-          <%= an_actor.dob %>
-        </td>
-
-        <td>
-          <%= an_actor.bio %>
-        </td>
-
-        <td>
-          <%= an_actor.image %>
-        </td>
-
-        <td>
-          <%= time_ago_in_words(an_actor.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(an_actor.updated_at) %> ago
-        </td>
-
-        <td>
-          <a href="/actors/<%= an_actor.id %>">
+          <a href="/users/<%= an_actor.id %>">
             Show details
           </a>
         </td>
