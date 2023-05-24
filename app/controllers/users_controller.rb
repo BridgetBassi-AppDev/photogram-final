@@ -15,8 +15,9 @@ class UsersController < ApplicationController
 
   def show 
     the_id = params.fetch("path_id")
-    @pending_requests = @current_user.received_follow_requests.where({:status => "pending"})
-    @accepted_requests = @current_user.received_follow_requests.where({:status => "accepted"})
+    @the_user = User.where( :username => the_id).at(0)
+    @pending_requests = @the_user.received_follow_requests.where({:status => "pending"})
+    @accepted_requests = @the_user.received_follow_requests.where({:status => "accepted"})
 
     render({ :template => "show.html.erb" })
   end
