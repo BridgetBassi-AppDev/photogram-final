@@ -6,15 +6,16 @@
   </div>
 </div>
 
-<hr>
 
+<hr>
+<% if session.fetch(:user_id) != nil %>
 <div>
   <div>
     <h2>
       Add a new photo
     </h2>
 
-    <form action="/insert_photo" method="post">
+    <form action="/insert_photo" method="post" >
       <div>
         <label for="caption_box">
           Caption
@@ -44,7 +45,7 @@
     </form>
   </div>
 </div>
-
+<%end%>
 <hr>
 <div>
   <div>
