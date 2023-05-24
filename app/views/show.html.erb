@@ -7,23 +7,32 @@
 
   <dt>Followers</dt>
   <dd>
-    <%=@current_user.private%>
+    <%=@accepted_requests.count%>
 
     </div>
 
       <h4>Pending follow requests</h4>
-      <% @list_of_follow_requests.each do |a_photo| %>
+      <% @pending_requests.each do |a_photo| %>
       <tr>
         <td>
           <%= a_photo.sender.username %>
         </td>
 
         <td>
-            <form action="/modify_follow_request/1815" method="post">
+            <form action="/modify_follow_request/<%= a_photo.id%>" method="post">
               <input name="query_status" value="accepted" type="hidden">
-
               <button>
                 Accept
+              </button>
+            </form>
+        </td>
+                <td>
+            <form action="/modify_follow_request/<%= a_photo.id%>" method="post">
+              <input name="query_status" value="rejected" type="hidden">
+            
+
+              <button>
+                Reject
               </button>
             </form>
         </td>

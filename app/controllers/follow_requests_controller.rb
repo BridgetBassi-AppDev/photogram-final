@@ -1,9 +1,11 @@
 class FollowRequestsController < ApplicationController
   def index
     the_id = params.fetch("path_id")
-    matching_follow_requests = FollowRequest.where({ :recipient_id => the_id })
+    #matching_follow_requests = FollowRequest.where({ :recipient_id => the_id })
+    #@accepted_follow_requests = matching_follow_requests.where({status => "accepted"})
+    #pending_follow_requests = matching_follow_requests.where({status => "pending"})
 
-    @list_of_follow_requests = matching_follow_requests.order({ :created_at => :desc })
+    #@list_of_follow_requests = pending_follow_requests.order({ :created_at => :desc })
 
     render({ :template => "follow_requests/index.html.erb" })
   end
@@ -36,8 +38,8 @@ class FollowRequestsController < ApplicationController
     the_id = params.fetch("path_id")
     the_follow_request = FollowRequest.where({ :id => the_id }).at(0)
 
-    the_follow_request.sender_id = params.fetch("query_sender_id")
-    the_follow_request.recipient_id = params.fetch("query_recipient_id")
+    #the_follow_request.sender_id = params.fetch("query_sender_id")
+    #the_follow_request.recipient_id = @current_user.id
     the_follow_request.status = params.fetch("query_status")
 
     if the_follow_request.valid?
