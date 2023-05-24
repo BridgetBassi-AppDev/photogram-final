@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action(:force_user_sign_in, { :only => [:index] })
+  skip_before_action(:force_user_sign_in, { :only => [:index, :homepage] })
 
   def index
     matching_users = User.all
@@ -7,6 +7,10 @@ class UsersController < ApplicationController
     @list_of_users = matching_users.order({ :created_at => :desc })
 
     render({ :template => "index.html.erb" })
+  end
+  def homepage
+
+    redirect_to("/users")
   end
 
   def show 

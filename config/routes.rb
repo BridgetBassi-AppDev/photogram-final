@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   # homepage        
   get("/users", { :controller => "users", :action => "index" })
 
-  get("/", { :controller => "users", :action => "index" })
+  get("/", { :controller => "users", :action => "homepage" })
 
   #user 
   get("/users/:path_id", { :controller => "users", :action => "show" })
